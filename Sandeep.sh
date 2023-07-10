@@ -10,6 +10,3 @@ do
     echo $i
   fi
 done
-#Display Odd numbers
-file_path="/var/lib/jenkins/workspace/Demogorgan/odd.txt"
-echo "$i to $file_path"
