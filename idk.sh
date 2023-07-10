@@ -2,7 +2,7 @@
 
 # Docker login credentials
 username="cibbi546"
-password="dckr_pat_y1BJ42DQnh9SQ0SkGnDg8qzSGxY"
+password="NO_love@123"
 registry="jenkins"
 
 # Docker login command
