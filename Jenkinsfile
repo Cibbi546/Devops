@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_HUB_CREDENTIALS = 'sandeep-credentials'
+        DOCKER_HUB_CREDENTIALS = 'Dockerhub-ID'
         DOCKER_IMAGE_NAME = 'cibbi546/jenkinsdocker'
         DOCKER_IMAGE_TAG = "latest-${env.BUILD_NUMBER}"
         GIT_URL = 'https://github.com/Cibbi546/Devops.git'
