@@ -14,8 +14,6 @@ pipeline {
                 git url: "${GIT_URL}"
             }
         }
-    }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -35,7 +33,6 @@ pipeline {
                 }
             }
         }
-
         stage('Clean Up Local Image') {
             steps {
                 script {
@@ -43,4 +40,5 @@ pipeline {
                 }
             }
         }
+    }
 }
