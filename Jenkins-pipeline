@@ -2,10 +2,11 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_HUB_CREDENTIALS = 'Dockerhub-ID'
+        DOCKER_HUB_CREDENTIALS = 'Dockerhub-cibbi'
         DOCKER_IMAGE_NAME = 'cibbi546/jenkinsdocker'
         DOCKER_IMAGE_TAG = "latest-${env.BUILD_NUMBER}"
         GIT_URL = 'https://github.com/Cibbi546/Devops.git'
+        C_NAME = 'cibbi'
     }
     
     stages {
@@ -14,6 +15,8 @@ pipeline {
                 git url: "${GIT_URL}"
             }
         }
+    }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -33,6 +36,7 @@ pipeline {
                 }
             }
         }
+
         stage('Clean Up Local Image') {
             steps {
                 script {
@@ -40,5 +44,4 @@ pipeline {
                 }
             }
         }
-    }
 }
