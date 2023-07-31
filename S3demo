@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_DEFAULT_REGION = 'ap-south-1'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Your build steps go here, e.g., building the HTML file
+                // For this example, let's assume the HTML file is already generated or present in the workspace.
+            }
+        }
+        stage('Deploy to S3') {
+            steps {
+                withCredentials([
+                    string(credentialsId: 'AWS_ACCESS_KEY', variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'AWS_SECRET_KEY', variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) {
+                    script {
+                        def bucketName = 'momos12340'
+                        def htmlFilePath = '/var/lib/jenkins/index.html'
+
+                        sh "aws s3 cp ${index.html} s3://${momos12340} --region ${AWS_DEFAULT_REGION}"
+                    }
+                }
+            }
+        }
+    }
+}
